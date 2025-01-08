@@ -1,8 +1,17 @@
 # I-AllO: Your Affordable CallBot Solution
 
-With I-AllO, you can set up a cost-effective CallBot agent in minutes using Python, [Twilio Voice](https://www.twilio.com/docs/voice), [Media Streams](https://www.twilio.com/docs/voice/media-streams), and [OpenAI's Realtime API](https://platform.openai.com/docs/). This app facilitates phone conversations with an AI Assistant by establishing websockets to transfer voice audio between OpenAI and Twilio. It manages inbound calls through a webhook in `index.py`, which generates a TwiML response to connect the call to a media stream.
+With I-AllO, you can set up a cost-effective CallBot agent in minutes using Python, [Twilio Voice](https://www.twilio.com/docs/voice), [Media Streams](https://www.twilio.com/docs/voice/media-streams), and [OpenAI's Realtime API](https://platform.openai.com/docs/). 
 
-Explore our tutorial [here](https://www.twilio.com/en-us/voice-ai-assistant-openai-realtime-api-python).
+This app facilitates phone conversations with an AI Assistant by establishing websockets to transfer voice audio between OpenAI and Twilio. 
+It manages inbound and outbound calls through a webhook which generates a TwiML response to connect the call to a media stream.
+
+I-AllO offers a range of solutions for various industries, including:
+
+- **Customer Support**: Automate customer interactions and streamline support processes.
+- **Sales Automation**: Enhance sales efficiency with AI-driven call handling.
+- **Lead Generation**: Capture and qualify leads effectively.
+- **Appointment Scheduling**: Simplify scheduling with automated call handling.
+- **Voice Products**: Develop custom voice solutions tailored to your business needs.
 
 I-AllO leverages:
 - Twilio Voice (TwiML, Media Streams)
@@ -31,3 +40,8 @@ To set up I-AllO locally, follow these steps:
 
 Execute in Terminal:
 python main.py index.py
+
+
+Additionally, I-AllO provides a variety of pricing plans to suit different business requirements, from the Starter plan with basic features to the Enterprise plan offering custom solutions and dedicated support. For more details, visit our website: [https://iallo.surge.sh](iallo.surge.sh).
+
+For any inquiries or support, feel free to reach out through our contact [iallo@gmail.com](iallo@gmail.com). We are here to assist you in transforming your business with AI-powered call solutions.
