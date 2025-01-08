@@ -1,10 +1,10 @@
-# Speech Assistant with Twilio Voice and OpenAI Realtime API
+# I-AllO: Your Affordable CallBot Solution
 
-This app uses Python, [Twilio Voice](https://www.twilio.com/docs/voice), [Media Streams](https://www.twilio.com/docs/voice/media-streams), and [OpenAI's Realtime API](https://platform.openai.com/docs/) to enable phone conversations with an AI Assistant. It sets up websockets to transfer voice audio between OpenAI and Twilio, handling inbound calls via a webhook in `index.py` that generates a TwiML response to connect the call to a media stream.
+With I-AllO, you can set up a cost-effective CallBot agent in minutes using Python, [Twilio Voice](https://www.twilio.com/docs/voice), [Media Streams](https://www.twilio.com/docs/voice/media-streams), and [OpenAI's Realtime API](https://platform.openai.com/docs/). This app facilitates phone conversations with an AI Assistant by establishing websockets to transfer voice audio between OpenAI and Twilio. It manages inbound calls through a webhook in `index.py`, which generates a TwiML response to connect the call to a media stream.
 
-For a tutorial, visit [here](https://www.twilio.com/en-us/voice-ai-assistant-openai-realtime-api-python).
+Explore our tutorial [here](https://www.twilio.com/en-us/voice-ai-assistant-openai-realtime-api-python).
 
-This app uses:
+I-AllO leverages:
 - Twilio Voice (TwiML, Media Streams)
 - Twilio Phone Numbers
 - OpenAI Realtime API
@@ -18,7 +18,7 @@ This app uses:
 
 ## Local Setup
 
-Follow these steps to set up the app locally:
+To set up I-AllO locally, follow these steps:
 
 1. Run ngrok to expose your local server: [Download ngrok](https://ngrok.com/).
 2. (Optional) Create a virtual environment.
@@ -29,5 +29,5 @@ Follow these steps to set up the app locally:
 
 ### Open an ngrok tunnel
 
-Run in Terminal:
+Execute in Terminal:
 python main.py index.py
