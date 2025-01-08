@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistant Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .stats-bar {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2em;
+        }
+        .stat {
+            background: #1e1e1e;
+            padding: 1em;
+            border-radius: 8px;
+            text-align: center;
+            flex: 1;
+            margin: 0 0.5em;
+        }
+
+        .stat h3 {
+            margin: 0;
+            color: #aaa;
+        }
+
+        .stat h2 {
+            margin: 0.5em 0;
+            color: #085af3;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1em 2em;
+            background-color: #1e1e1e;
+            border-bottom: 1px solid #333;
+        }
+
+        .navbar h1 {
+            font-size: 1.5em;
+            margin: 0;
+        }
+
+        .navbar button {
+            padding: 0.8em 1.5em;
+            border: none;
+            background: #085af3;
+            color: #fff;
+            font-size: 1em;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .navbar button:hover {
+            background: #0a965e;
+        }
+
+        .content {
+            padding: 2em;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 1em;
+            margin-bottom: 2em;
+        }
+
+        .tab {
+            padding: 0.8em 1.2em;
+            border-radius: 8px;
+            background: #333;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .tab:hover {
+            background: #444;
+        }
+
+        .tab.active {
+            background: #085af3;
+            color: #fff;
+        }
+
+        .section {
+            background: #1e1e1e;
+            padding: 1.5em;
+            border-radius: 8px;
+            margin-bottom: 1.5em;
+        }
+
+        .section h3 {
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+
+        .form-group {
+            margin-bottom: 1em;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5em;
+        }
+
+        .form-group input[type="text"],
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8em;
+            border-radius: 8px;
+            border: none;
+            background: #333;
+            color: #fff;
+        }
+
+        .sliders {
+            display: flex;
+            gap: 1.5em;
+            align-items: center;
+        }
+
+        .slider {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 4px;
+            background: #555;
+            outline: none;
+            border-radius: 8px;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #085af3;
+            cursor: pointer;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 1em;
+            justify-content: flex-end;
+        }
+
+        button {
+            padding: 0.8em 1.5em;
+            border: none;
+            background: #085af3;
+            color: #fff;
+            font-size: 1em;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #0a965e;
+        }
+
+        .toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+        }
+
+        .toggle input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .toggle label {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>New Assistant</h1>
+        <button>Save</button>
+    </div>
+
+    <div class="content">
+         <!-- Stats Bar -->
+         <div class="stats-bar">
+            <div class="stat">
+                <h3>Cost</h3>
+                <h2>$0.09 /min</h2>
+            </div>
+            <div class="stat">
+                <h3>Latency</h3>
+                <h2>~700 ms</h2>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <!-- Tabs -->
+        <div class="tabs">
+            <div id="model" class="tab active">Model</div>
+            <div id="Transcriber" class="tab">Transcriber</div>
+            <div id="Voice" class="tab">Voice</div>
+            <div id="Functions" class="tab">Functions</div>
+            <div id="Data" class="tab">Data</div>
+        </div>
+
+        <!-- Dynamic Section -->
+        <div class="section" id="contenaire"></div>
+
+        <!-- Buttons -->
+        <!-- <div class="buttons">
+            <button>Cancel</button>
+            <button>Save</button>
+        </div> -->
+    </div>
+
+    <script>
+        // Tabs logic
+        const tabs = document.querySelectorAll('.tab');
+        const container = document.getElementById('contenaire');
+
+        const content = {
+            model: `
+                <h3>Model</h3>
+                <div class="form-group">
+                    <label for="firstMessage">First Message</label>
+                    <input type="text" id="firstMessage" placeholder="Enter the first message...">
+                </div>
+                <div class="form-group">
+                    <label for="systemPrompt">System Prompt</label>
+                    <textarea id="systemPrompt" rows="3" placeholder="Enter the system prompt..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="modelProvider">Provider</label>
+                    <select id="modelProvider">
+                        <option value="openai">OpenAI</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="modelType">Model</label>
+                    <select id="modelType">
+                        <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
+                        <option value="gpt-4">GPT-4</option>
+                    </select>
+                </div>
+                <div class="sliders">
+                    <div class="slider">
+                        <label for="temperature">Temperature</label>
+                        <input type="range" id="temperature" min="0" max="1" step="0.1" value="0.7">
+                    </div>
+                    <div class="slider">
+                        <label for="tokens">Max Tokens</label>
+                        <input type="range" id="tokens" min="100" max="1000" step="50" value="250">
+                    </div>
+                </div>
+            `,
+            transcriber: `
+                <h3>Transcription</h3>
+                <div class="form-group">
+                    <label for="provider">Provider</label>
+                    <select id="provider">
+                        <option value="deepgram">Deepgram</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="language">Language</label>
+                    <input type="text" id="language" value="en" placeholder="Enter language...">
+                </div>
+                <div class="pro-tip">
+                    Pro tip: If you want to support both English and Spanish, you can set the language to multi and use ElevenLabs Turbo 2.5 in the Voice tab.
+                </div>
+                <div class="form-group">
+                    <label for="model">Model</label>
+                    <select id="model">
+                        <option value="nova2">Nova 2</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="toggle">
+                    <input type="checkbox" id="denoising" checked>
+                    <label for="denoising">Background Denoising Enabled</label>
+                </div>
+            `,
+            voice: `
+                <h3>Voice</h3>
+                <div class="form-group">
+                    <label for="voiceProvider">Provider</label>
+                    <select id="voiceProvider">
+                        <option value="elevenlabs">ElevenLabs</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group
+                    <label for="voice">Voice</label>
+                    <select id="voice">
+                        <option value="New York Man">New York Man</option>
+                        <option value="Wise Men">Wise Men</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>`,
+            functions: `          
+                <h3>Functions</h3>
+                <div class="form-group">
+                    <label for="mail">Mail Adresse</label>
+                    <input type="text" id="mail" placeholder="Enter Your Mail Adresse">
+                </div>
+                <button>test</button>`
+            
+
+        };
+
+        // Default content for the "Model" tab
+        container.innerHTML = content.model;
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelector('.tab.active').classList.remove('active');
+                tab.classList.add('active');
+                container.innerHTML = content[tab.id.toLowerCase()] || '<h3>Coming Soon</h3>';
+            });
+        });
+    </script>
+</body>
+</html>
