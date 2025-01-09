@@ -1,5 +1,3 @@
-DEMO Video Link:
-https://drive.google.com/file/d/1ks1iJH1oGigfSrmTN-pWQyPlFJXzODwM/view?usp=drive_link
 # I-AllO: Your Affordable CallBot Solution
 
 ![I-AllO Logo](logo.jpg)
@@ -76,5 +74,9 @@ To set up I-AllO locally, follow these steps:
 **Pricing and Support:**
 
 I-AllO provides a variety of pricing plans to suit different business requirements, from the Starter plan with basic features to the Enterprise plan offering custom solutions and dedicated support. For more details, visit our website: [https://iallo.surge.sh](iallo.surge.sh).
+
+
+**Demo Video Link:**
+https://drive.google.com/file/d/1ks1iJH1oGigfSrmTN-pWQyPlFJXzODwM/view?usp=drive_link
 
 For any inquiries or support, feel free to reach out through our contact [iallo@gmail.com](iallo@gmail.com). We are here to assist you in transforming your business with AI-powered call solutions.
