@@ -140,7 +140,7 @@ Watch the demo: [Click Here](https://drive.google.com/file/d/1ks1iJH1oGigfSrmTN-
 
 Have questions or need support? Reach out to us:
 
-- **Email:** [iallo@gmail.com](mailto:iallo@gmail.com)
+- **Email:** [iallo@gmail.com](mailto:imaf.progmail.com)
 - **Website:** [I-AllO Website](https://iallo.surge.sh)
 
 We’re here to help you transform your business with AI-powered call solutions! 🌐
