@@ -13,7 +13,6 @@ I-AllO is a cost-effective, intelligent CallBot solution designed to revolutioni
 - **🌐 Scalable Architecture:** Modular design ensures easy integration and scalability.
 - **📅 Agent Tools:** Seamless integration with Google Sheets, Google Calendar, and Gmail for enhanced productivity.
 - **🎨 Customizable Dashboard:** User-friendly interface for configuring models, prompts, and parameters via JSON data.
-- **🔒 Secure Data Storage:** Firebase Database ensures data security and efficient logging.
 
 ---
 
@@ -28,7 +27,6 @@ I-AllO leverages a multi-component architecture to ensure efficiency and scalabi
 3. **💻 Backend:** Integrates OpenAI's Realtime API for Speech-to-Text (STT), Text-to-Speech (TTS), and intelligent communication logic.
 4. **🔧 Agent Tools:** Provides access to Google productivity tools for streamlined workflows.
 5. **🌐 Front-End Dashboard:** Configure the assistant settings, including LLM provider, voice cloning, transcription services, and more.
-6. **🔒 Data Storage:** Secure data and logs are stored in Firebase Database.
 
 ---
 
@@ -69,9 +67,8 @@ I-AllO provides solutions tailored for a variety of industries:
 
 - **Programming Language:** Python
 - **Voice Integration:** Twilio Voice (TwiML, Media Streams)
-- **WhatsApp Integration:** EC2 for real-time communication
+- **WhatsApp Integration:** EC2 for externel whatsapp communication
 - **AI Services:** OpenAI Realtime API
-- **Data Management:** Firebase Database
 - **Productivity Tools:** Google Sheets, Google Calendar, Gmail
 
 ---
@@ -84,7 +81,6 @@ Ensure you have the following:
 - **Twilio Account:** [Sign up for Twilio](https://www.twilio.com/try-twilio)
 - **Twilio Number:** Purchase a Voice-capable phone number: [Guide](https://help.twilio.com/articles/223135247-How-to-Search-for-and-Buy-a-Twilio-Phone-Number-from-Console)
 - **OpenAI Account:** Obtain an API Key: [Sign up](https://platform.openai.com/)
-- **AWS Account (WhatsApp Integration):** [Sign up](https://aws.amazon.com/)
 
   ---
 
