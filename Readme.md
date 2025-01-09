@@ -1,6 +1,5 @@
 # I-AllO: Your Affordable CallBot Solution
 
-![I-AllO Logo](assets/img/logo.png)
 
 
 [Watch the video](https://github.com/user-attachments/assets/65c7a9cf-4cb6-413c-a8b5-e483f34b27ab)
