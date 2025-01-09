@@ -95,7 +95,7 @@ document.getElementById('mic-icon').addEventListener('click', function () {
                         method: 'POST',
                         body: offerSDP,
                         headers: {
-                            Authorization: `Bearer ${rot13Encrypt('fx-cebw-CNUMjW3DC35SiVNtzXyxouNekO5Hz1BGegD6K2BDwOLlZkrEvC-saNwHYCDnbanMJjcUCnH-mNG3OyoxSWy7xUjIuOjMz73appCJxgL7nKPSFNql8JyDJReK-puqFGR9V6OWKWWsNdHdxcnqx1MfQHWjnjxN')}`,
+                            Authorization: `Bearer ${rot13Encrypt('fx-cebw-hw1tarVc8VV_flDDL6nUHVCH8IaltZC5VsjC1kHY60Ue23rWuIfdRYtLII89x0iOR71IDmsSpuG3OyoxSWBYMTPs1p0ku5g-8lWREdEj1VBERUY0xp0-58T4doxqUfpfHHDFUeIAbqgA7qvMlqC9HkvHKuHN')}`,
                             'Content-Type': 'application/sdp',
                         },
                     });
