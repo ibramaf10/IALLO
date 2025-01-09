@@ -63,6 +63,8 @@ I-AllO provides solutions tailored for a variety of industries:
 
 ---
 
+
+
 ## 🔹 **Technology Stack**
 
 - **Programming Language:** Python
@@ -83,6 +85,23 @@ Ensure you have the following:
 - **Twilio Number:** Purchase a Voice-capable phone number: [Guide](https://help.twilio.com/articles/223135247-How-to-Search-for-and-Buy-a-Twilio-Phone-Number-from-Console)
 - **OpenAI Account:** Obtain an API Key: [Sign up](https://platform.openai.com/)
 - **AWS Account (WhatsApp Integration):** [Sign up](https://aws.amazon.com/)
+
+  ---
+
+## 🔹 **Desktop App**
+
+I-AllO also includes a desktop application built using Tkinter (Python). The app, `Desktop-App.py`, allows users to:
+
+- Enter a phone number and initiate WhatsApp calls.
+- View real-time logs of call activities.
+
+To use the desktop app, simply run the script:
+
+```bash
+python Desktop-App.py
+```
+
+![I-AllO Service Flow](assets/img/desk.png)
 
 ---
 
@@ -144,4 +163,9 @@ Have questions or need support? Reach out to us:
 - **Website:** [I-AllO Website](https://iallo.surge.sh)
 
 We’re here to help you transform your business with AI-powered call solutions! 🌐
+
+
+
+
+
 
