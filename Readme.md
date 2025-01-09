@@ -79,4 +79,4 @@ I-AllO provides a variety of pricing plans to suit different business requiremen
 **Demo Video Link:**
 https://drive.google.com/file/d/1ks1iJH1oGigfSrmTN-pWQyPlFJXzODwM/view?usp=drive_link
 
-For any inquiries or support, feel free to reach out through our contact [iallo@gmail.com](iallo@gmail.com). We are here to assist you in transforming your business with AI-powered call solutions.
+For any inquiries or support, feel free to reach out through our contact [iallo@gmail.com](imaf.pro@gmail.com). We are here to assist you in transforming your business with AI-powered call solutions.
