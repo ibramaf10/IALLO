@@ -90,7 +90,7 @@ Ensure you have the following:
 
 ## 🔹 **Desktop App**
 
-I-AllO also includes a desktop application built using Tkinter (Python). The app, `Desktop-App.py`, allows users to:
+I-AllO also includes a desktop application built using Tkinter (Python). The app, `DesktopApp.py`, allows users to:
 
 - Enter a phone number and initiate WhatsApp calls.
 - View real-time logs of call activities.
@@ -98,7 +98,7 @@ I-AllO also includes a desktop application built using Tkinter (Python). The app
 To use the desktop app, simply run the script:
 
 ```bash
-python Desktop-App.py
+python DesktopApp.py
 ```
 
 ![I-AllO Service Flow](assets/img/desk.png)
