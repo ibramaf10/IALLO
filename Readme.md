@@ -1,4 +1,4 @@
-# 🌐 I-AllO: Your Affordable AI-Powered CallBot Solution
+# 📞🤖 I-AllO: Your Affordable WhatsApp Based AI-Powered CallBot Solution
 
 [![Watch the Demo Video](https://img.shields.io/badge/Demo-Video-blue?style=flat-square)](https://github.com/user-attachments/assets/65c7a9cf-4cb6-413c-a8b5-e483f34b27ab)
 
