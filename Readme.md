@@ -1,6 +1,6 @@
 # I-AllO: Your Affordable CallBot Solution
 
-![I-AllO Logo](logo.png)
+![I-AllO Logo](assets/img/logo.png)
 
 I-AllO is a cost-effective CallBot solution built with Python, Twilio Voice (including Media Streams), and OpenAI's Realtime API. It enables seamless phone and WhatsApp communication between clients, agents, and backend services.
 
@@ -18,7 +18,7 @@ I-AllO is a cost-effective CallBot solution built with Python, Twilio Voice (inc
 
 I-AllO uses a multi-component architecture:
 
-![I-AllO Architecture](architecture.jpg)
+![I-AllO Architecture](assets/img/architecture.jpg)
 
 1. **Client Communication:** Clients interact via phone calls (Twilio) or WhatsApp calls (EC2).
 2. **Infra-API:** Manages real-time call handling and routes requests to the backend.
@@ -27,7 +27,7 @@ I-AllO uses a multi-component architecture:
 5. **Front-End:** A configurable dashboard manages I-AllO Assistant settings (model selection, system prompt, LLM provider, temperature, max tokens, transcription/voice providers, language, voice cloning, background noise reduction, email address, and more data).
 6. **Data Storage:** Firebase Database stores system data and logs securely.
 
-![I-AllO Dashboard](dashboard.png)
+![I-AllO Dashboard](assets/img/dashboard.png)
 
 
 **Use Cases:**
@@ -40,7 +40,7 @@ I-AllO offers solutions for various industries, including:
 * **Appointment Scheduling:** Simplify scheduling with automated call handling.
 * **Voice Products:** Develop custom voice solutions tailored to your business needs.
 
-![I-AllO Service Flow](service.png)
+![I-AllO Service Flow](assets/img/service.png)
 
 **Technology Stack:**
 
