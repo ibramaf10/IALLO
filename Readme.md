@@ -61,8 +61,6 @@ I-AllO provides solutions tailored for a variety of industries:
 
 ---
 
-
-
 ## 🔹 **Technology Stack**
 
 - **Programming Language:** Python
@@ -150,6 +148,26 @@ For more details, visit our website: [I-AllO Website](https://iallo.surge.sh)
 Watch the demo: [Click Here](https://drive.google.com/file/d/1ks1iJH1oGigfSrmTN-pWQyPlFJXzODwM/view?usp=drive_link)
 
 ---
+
+
+
+## 🔹 **Prospective Features**
+
+We are continuously innovating and working on exciting new features to enhance I-AllO:
+
+- **🔊 Bulk CSV Uploads:** Upload a CSV file with multiple phone numbers to automate sequential call handling.
+- **🔍 Direct WhatsApp Connection:** Seamless integration with WhatsApp accounts using QR code authentication.
+- **🚀 Multi-Platform Plugin:** Support for various platforms to ensure a consistent experience across devices.
+- **📊 Interactive Dashboard:** Real-time insights and analytics to monitor and manage calls effectively.
+- **🌐 Multi-Service Provider Integration:** Expand support for additional TTS, STT, and AI providers for enhanced customization.
+- **🚑 Human Intervention:** Enable manual intervention for emergency situations to ensure a seamless client experience.
+
+Stay tuned for updates as we bring these features to life!
+
+---
+
+
+
 
 ## 🔹 **Contact Us**
 
