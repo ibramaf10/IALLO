@@ -79,6 +79,21 @@ Ensure you have the following:
 - **Twilio Account:** [Sign up for Twilio](https://www.twilio.com/try-twilio)
 - **Twilio Number:** Purchase a Voice-capable phone number: [Guide](https://help.twilio.com/articles/223135247-How-to-Search-for-and-Buy-a-Twilio-Phone-Number-from-Console)
 - **OpenAI Account:** Obtain an API Key: [Sign up](https://platform.openai.com/)
+  
+### Install VB-Audio Cable
+
+Note: You need two separate Virtual Audio Cables. I am using VB Audio Cable and (VAC) Virtual Audio Cable. Install both.
+
+- [Download VB-Audio Cable](https://vb-audio.com/Cable/)
+
+![App Screenshot](https://github.com/skshadan/WhisCall/blob/main/images/vb-audio.png?raw=true)
+
+### Install Whatsapp Desktop Version
+
+[Download Whatsapp](ms-windows-store://pdp/?productid=9NKSQGP7F2NH&mode=mini&cid=sideload_experiment_control)
+
+
+![App Screenshot](https://github.com/skshadan/WhisCall/blob/main/images/whatsapp.png?raw=true)
 
   ---
 
