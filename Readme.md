@@ -2,6 +2,11 @@
 
 ![I-AllO Logo](assets/img/logo.png)
 
+
+[Watch the video](https://github.com/user-attachments/assets/65c7a9cf-4cb6-413c-a8b5-e483f34b27ab)
+
+
+
 I-AllO is a cost-effective CallBot solution built with Python, Twilio Voice (including Media Streams), and OpenAI's Realtime API. It enables seamless phone and WhatsApp communication between clients, agents, and backend services.
 
 **Key Features:**
