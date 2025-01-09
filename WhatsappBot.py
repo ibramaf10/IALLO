@@ -340,7 +340,7 @@ def close_call():
         # screen_width, screen_height = pyautogui.size()
         # pyautogui.click(x=screen_width - 10, y=10)
         # print("Call ended.")
-        subprocess.run(["taskkill", "/F", "/IM", "WhatsApp.exe"], check=True)
+        # subprocess.run(["taskkill", "/F", "/IM", "WhatsApp.exe"], check=True)
         print("Call ended.")
 
     except Exception as e:
