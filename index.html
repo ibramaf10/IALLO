@@ -21,9 +21,9 @@
             <a href="#" class="navbar-logo">&lt;I-AllO&gt;</a>
             <ul class="navbar-menu">
                 <li class="navbar-item"><a href="#" class="navbar-link">Home</a></li>
-                <li class="navbar-item"><a href="#" class="navbar-link">Features</a></li>
-                <li class="navbar-item"><a href="#" class="navbar-link">Pricing</a></li>
-                <li class="navbar-item"><a href="#" class="navbar-link">Contact</a></li>
+                <li class="navbar-item"><a href="#Features" class="navbar-link">Features</a></li>
+                <li class="navbar-item"><a href="#pricing" class="navbar-link">Pricing</a></li>
+                <li class="navbar-item"><a href="#contact" class="navbar-link">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -34,7 +34,7 @@
 
     <div class="background"></div>
 
-    <div class="container" style="margin-top: 230px;">
+    <div class="container" style="margin-top: 230px;" id="home" >
         <h1>I-AllO</h1>
         <p>With I-AllO, Your Cheap CallBot Agent in Minutes.</p>
         <div class="mic-icon" id="mic-icon" style="z-index: 1000;">
@@ -59,7 +59,7 @@
         
         <div class="buttons">
             <button class="buttona" onclick="window.location.href='dash-main.html'">Get It Now</button>
-            <button class="buttonaa">Contact Us</button>
+            <button class="buttonaa" onclick="window.location.href='#contact'">Contact Us</button>
         </div>
 
     </div>
@@ -67,7 +67,7 @@
     <div id="audio-container"></div>
 
 
-    <div class="container">
+    <div class="container" id="Features">
         <h1 class="title">Solutions for Everything.</h1>
         <p class="subtitle">Customer support, front desk, outbound sales, lead generation, food ordering, transportation
             logistics, and more.</p>
@@ -78,7 +78,7 @@
             <button class="button">Voice Products</button>
         </div>
 
-        <div class="grid">
+        <div class="grid" >
             <div class="card">
                 <h3>Barbershop</h3>
                 <p>Availability, bookings, inquiries</p>
@@ -190,24 +190,84 @@
             </div>
             <form class="contact-form" id="contactForm">
                 <div class="form-group">
-                    <input type="text" class="form-input" placeholder="Your Name" required>
+                    <input type="text" class="form-input" id="name" placeholder="Your Name" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" class="form-input" placeholder="Your Email" required>
+                    <input type="email" class="form-input" id="email" placeholder="Your Email" required>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-input" placeholder="Subject" required>
+                    <input type="text" class="form-input" id="subject" placeholder="Subject" required>
                 </div>
                 <div class="form-group">
-                    <textarea class="form-input" placeholder="Your Message" required></textarea>
+                    <textarea class="form-input" id="message" placeholder="Your Message" required></textarea>
                 </div>
-                <button type="submit" class="submit-button">Send Message</button>
+                <button type="button"  onclick="sendEmail()" class="submit-button">Send Message</button>
                 <div class="success-message" id="successMessage">
                     Thank you! Your message has been sent successfully.
                 </div>
             </form>
         </div>
     </section>
+
+    
+
+    <script>
+    
+    async function sendEmail() {
+    const Email = document.getElementById('email').value;
+    const name = document.getElementById('name').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+
+    const emailTemplate = `
+        <div style="font-family: Arial, sans-serif; line-height: 1.6;">
+            <h2 style="color: #333;">New Contact Form Submission</h2>
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Email:</strong> ${Email}</p>
+            <p><strong>Subject:</strong> ${subject}</p>
+            <p><strong>Message:</strong></p>
+            <p>${message}</p>
+        </div>
+    `;
+
+    const msg = emailTemplate;
+
+    try {
+        const response = await fetch('https://mail-api-mounsef.vercel.app/api/send-email', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                to: "imaf.pro@gmail.com",
+                cc: "imaf.pro@gmail.com",
+                subject: subject,
+                message: msg,
+                isHtml: true
+            })
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            alert('Email sent successfully!');
+
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('subject').value = '';
+            document.getElementById('message').value = '';
+
+        } else {
+            alert('Failed to send email');
+        }
+    } catch (error) {
+        console.log('Error: ' + error.message);
+    }
+}
+
+    
+    </script>
+
 
 
     <footer class="footer">
@@ -237,10 +297,10 @@
                     <h3 class="footer-title">Company</h3>
                     <ul class="footer-links">
                         <li><a href="#">About Us</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Press</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#Features">Features</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
 
@@ -270,7 +330,7 @@
 
 <script src="assets/js/anim.js"></script>
 
-    <script src="assets/js/audio.js"></script>
+<script src="assets/js/audio.js"></script>
 
 
 </html>
