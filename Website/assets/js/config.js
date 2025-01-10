@@ -28,10 +28,10 @@ async function createConfigJson() {
     if (!welcomemessage) missingFields.push("Welcome Message");
 
 
-    if (missingFields.length > 0) {
-        alert("Please fill in the following fields: " + missingFields.join(", "));
-        return;
-    }
+    // if (missingFields.length > 0) {
+    //     alert("Please fill in the following fields: " + missingFields.join(", "));
+    //     return;
+    // }
 
     const config = {
         company: company,

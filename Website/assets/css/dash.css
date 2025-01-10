@@ -197,3 +197,10 @@ textarea {
     border-radius: 4px;
     resize: vertical;
 }
+
+input[type="file"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+

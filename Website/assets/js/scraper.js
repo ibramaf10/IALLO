@@ -1,6 +1,10 @@
 async function scrapeWebsite() {
     const companywebsite = document.getElementById('companywebsite').value;
     const resultContainer = document.getElementById('companydata');
+    if (!companywebsite) {
+        alert('Please enter a company website URL.');
+        return;
+    }
     resultContainer.textContent = 'Scraping... Please wait.';
 
     try {
@@ -8,7 +12,9 @@ async function scrapeWebsite() {
         const response = await fetch(`https://api-scraper-nine.vercel.app/api/scrape?url=${encodeURIComponent(companywebsite)}`);
 
         if (!response.ok) {
-            throw new Error('Failed to scrape the website. Make sure the URL is correct.');
+            const message = `Failed to scrape the website. Make sure the URL is correct. Status code: ${response.status}`;
+            alert(message);
+            throw new Error(message);
         }
 
         const data = await response.json();
@@ -32,10 +38,22 @@ async function scrapeWebsite() {
         if (data.html) {
             // Display the scraped HTML in the <pre> element
             resultContainer.textContent = textContent;
+            alert('Website scraped successfully!');
+
+            const companyInfo = await extractCompanyInfo(textContent);
+            if (companyInfo) {
+                resultContainer.textContent = companyInfo;
+                alert('Website scraped and company information extracted successfully!');
+            } else {
+                // resultContainer.textContent = 'No company information could be extracted.';
+                alert('Website scraped, but no company information could be extracted.');
+            }
         } else {
+            alert('No HTML found. Please try a different URL.');
             resultContainer.textContent = 'No HTML found. Please try a different URL.';
         }
     } catch (error) {
+        alert(`Error: ${error.message}`);
         resultContainer.textContent = `Error: ${error.message}`;
     }
 }

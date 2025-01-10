@@ -112,6 +112,11 @@ const content = {
                 <div class="form-group">
                     <label for="companydata">Company Data:</label>
                     <textarea rows="5" id="companydata" placeholder="Or Enter it manually..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="companydatafile">Upload Company Data:</label>
+                    <input type="file" id="companydatafile" accept=".json,.txt,.csv">
+                    <button type="button" onclick="extractCompanyInfoFromFile(document.getElementById('companydatafile').files[0])">Extract Company Info from File</button>
                 </div>`
 };
 
@@ -121,6 +126,10 @@ function saveFormData() {
     inputs.forEach(input => {
         formData[input.id] = input.value;
     });
+    const fileInput = document.getElementById('companydatafile');
+    if (fileInput && fileInput.files.length > 0) {
+        formData[fileInput.id] = fileInput.files[0].name; // Store filename for reference
+    }
     return formData;
 }
 
@@ -137,7 +146,7 @@ tabs.forEach(tab => {
 });
 
 // Add event listeners to all input elements to save to sessionStorage on change
-const allInputs = document.querySelectorAll('input, select, textarea');
+const allInputs = document.querySelectorAll('input, select, textarea, file');
 allInputs.forEach(input => {
     input.addEventListener('change', () => {
         sessionStorage.setItem('formData', JSON.stringify(saveFormData()));
@@ -153,7 +162,13 @@ window.addEventListener('load', () => {
         for (const key in formData) {
             const element = document.getElementById(key);
             if (element) {
-                element.value = formData[key];
+                if (key === 'companydatafile') {
+                    // Handle file upload -  This part would need further implementation to actually handle the file upload.
+                    // For now, it just displays the filename.
+                    console.log("File to upload:", formData[key]);
+                } else {
+                    element.value = formData[key];
+                }
             }
         }
     }
