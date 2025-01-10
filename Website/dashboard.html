@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,11 +12,13 @@
             background-color: #121212;
             color: #ffffff;
         }
+
         .stats-bar {
             display: flex;
             justify-content: space-between;
             margin-bottom: 2em;
         }
+
         .stat {
             background: #1e1e1e;
             padding: 1em;
@@ -34,6 +37,7 @@
             margin: 0.5em 0;
             color: #085af3;
         }
+
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -191,6 +195,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="navbar">
         <h1>New Assistant</h1>
@@ -198,8 +203,8 @@
     </div>
 
     <div class="content">
-         <!-- Stats Bar -->
-         <div class="stats-bar">
+        <!-- Stats Bar -->
+        <div class="stats-bar">
             <div class="stat">
                 <h3>Cost</h3>
                 <h2>$0.09 /min</h2>
@@ -308,7 +313,7 @@
                         <option value="other">Other</option>
                     </select>
                 </div>
-                <div class="form-group
+                <div class="form-group">
                     <label for="voice">Voice</label>
                     <select id="voice">
                         <option value="New York Man">New York Man</option>
@@ -319,12 +324,14 @@
             functions: `          
                 <h3>Functions</h3>
                 <div class="form-group">
-                    <label for="mail">Mail Adresse</label>
-                    <input type="text" id="mail" placeholder="Enter Your Mail Adresse">
+                    <label for="mail">Company Email:</label>
+                    <input type="text" id="toEmail" placeholder="Enter Your Company Email">
+                </div>
+                <div class="form-group">
+                    <label for="mail">Support Email:</label>
+                    <input type="text" id="ccEmail" placeholder="Enter Your Support Email">
                 </div>
                 <button>test</button>`
-            
-
         };
 
         // Default content for the "Model" tab
@@ -339,4 +346,5 @@
         });
     </script>
 </body>
+
 </html>

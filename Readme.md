@@ -20,7 +20,7 @@ I-AllO is a cost-effective, intelligent CallBot solution designed to revolutioni
 
 I-AllO leverages a multi-component architecture to ensure efficiency and scalability:
 
-![I-AllO Architecture](assets/img/architecture.jpg)
+![I-AllO Architecture](images/architecture.jpg)
 
 1. **📢 Client Communication:** Handles client calls via Twilio (phone) and EC2 (WhatsApp).
 2. **📡 Infra-API:** Manages real-time call handling and backend request routing.
@@ -34,7 +34,7 @@ I-AllO leverages a multi-component architecture to ensure efficiency and scalabi
 
 I-AllO includes a user-friendly dashboard to configure the assistant:
 
-![I-AllO Dashboard](assets/img/dashboard.png)
+![I-AllO Dashboard](images/dashboard.png)
 
 You can manage:
 - Model selection
@@ -57,7 +57,7 @@ I-AllO provides solutions tailored for a variety of industries:
 - **📅 Appointment Scheduling:** Simplify scheduling with automated call handling.
 - **🎧 Voice Products:** Create custom voice solutions for your business.
 
-![I-AllO Service Flow](assets/img/service.png)
+![I-AllO Service Flow](images/service.png)
 
 ---
 
@@ -110,7 +110,7 @@ To use the desktop app, simply run the script:
 python DesktopApp.py
 ```
 
-![I-AllO Service Flow](assets/img/desk.png)
+![I-AllO Service Flow](images/desk.png)
 
 ---
 
