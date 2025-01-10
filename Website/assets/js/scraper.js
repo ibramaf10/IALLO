@@ -40,14 +40,14 @@ async function scrapeWebsite() {
             resultContainer.textContent = textContent;
             alert('Website scraped successfully!');
 
-            const companyInfo = await extractCompanyInfo(textContent);
-            if (companyInfo) {
-                resultContainer.textContent = companyInfo;
-                alert('Website scraped and company information extracted successfully!');
-            } else {
-                // resultContainer.textContent = 'No company information could be extracted.';
-                alert('Website scraped, but no company information could be extracted.');
-            }
+            // const companyInfo = await extractCompanyInfo(textContent);
+            // if (companyInfo) {
+            //     resultContainer.textContent = companyInfo;
+            //     alert('Website scraped and company information extracted successfully!');
+            // } else {
+            //     // resultContainer.textContent = 'No company information could be extracted.';
+            //     alert('Website scraped, but no company information could be extracted.');
+            // }
         } else {
             alert('No HTML found. Please try a different URL.');
             resultContainer.textContent = 'No HTML found. Please try a different URL.';

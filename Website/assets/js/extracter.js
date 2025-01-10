@@ -42,7 +42,7 @@ async function extractCompanyInfoFromFile(file) {
         return null;
     }
 
-    resultContainer.textContent = 'Extracting... Please wait.';
+    // resultContainer.textContent += 'Adding Data... Please wait.';
 
     const reader = new FileReader();
     reader.onload = async (e) => {
@@ -67,9 +67,9 @@ async function extractCompanyInfoFromFile(file) {
                 alert("AI failed to extract company information.");
                 return null;
             }
-            alert("Company information extracted successfully!");
-            // return data.response;
-            resultContainer.textContent = data.response;
+            alert("Company information added successfully!");
+            //Append new data instead of replacing it.
+            resultContainer.textContent += data.response;
 
 
         } catch (error) {
