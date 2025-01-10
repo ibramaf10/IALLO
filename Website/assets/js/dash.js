@@ -59,8 +59,8 @@ const content = {
                     Pro tip: If you want to support both English and Spanish, you can set the language to multi and use ElevenLabs Turbo 2.5 in the Voice tab.
                 </div>
                 <div class="form-group">
-                    <label for="model">Model</label>
-                    <select id="model">
+                    <label for="modelTranscriber">Model</label>
+                    <select id="modelTranscriber">
                         <option value="nova2">Nova 2</option>
                         <option value="other">Other</option>
                     </select>
@@ -115,13 +115,46 @@ const content = {
                 </div>`
 };
 
+function saveFormData() {
+    const formData = {};
+    const inputs = document.querySelectorAll('input, select, textarea');
+    inputs.forEach(input => {
+        formData[input.id] = input.value;
+    });
+    return formData;
+}
+
 // Default content for the "Model" tab
 container.innerHTML = content.model;
 
 tabs.forEach(tab => {
     tab.addEventListener('click', () => {
+        sessionStorage.setItem('formData', JSON.stringify(saveFormData())); // Save data before switching tabs
         document.querySelector('.tab.active').classList.remove('active');
         tab.classList.add('active');
         container.innerHTML = content[tab.id.toLowerCase()] || '<h3>Coming Soon</h3>';
     });
+});
+
+// Add event listeners to all input elements to save to sessionStorage on change
+const allInputs = document.querySelectorAll('input, select, textarea');
+allInputs.forEach(input => {
+    input.addEventListener('change', () => {
+        sessionStorage.setItem('formData', JSON.stringify(saveFormData()));
+    });
+});
+
+
+// Load data from session storage on page load
+window.addEventListener('load', () => {
+    const storedData = sessionStorage.getItem('formData');
+    if (storedData) {
+        const formData = JSON.parse(storedData);
+        for (const key in formData) {
+            const element = document.getElementById(key);
+            if (element) {
+                element.value = formData[key];
+            }
+        }
+    }
 });
