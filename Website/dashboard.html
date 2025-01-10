@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistant Dashboard</title>
+    <link rel="stylesheet" href="assets/css/dash.css">
+
+</head>
+
+<body>
+    <div class="navbar">
+        <h1>New Assistant</h1>
+        <button type="submit" onclick="createConfigJson()">Save</button>
+    </div>
+
+    <div class="content">
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="stat">
+                <h3>Cost</h3>
+                <h2>$0.09 /min</h2>
+            </div>
+            <div class="stat">
+                <h3>Latency</h3>
+                <h2>~700 ms</h2>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <!-- Tabs -->
+        <div class="tabs">
+            <div id="model" class="tab active">Model</div>
+            <div id="Transcriber" class="tab">Transcriber</div>
+            <div id="Voice" class="tab">Voice</div>
+            <div id="Functions" class="tab">Functions</div>
+            <div id="Data" class="tab">Data</div>
+        </div>
+
+        <!-- Dynamic Section -->
+        <div class="section" id="contenaire"></div>
+
+        <!-- Buttons -->
+        <!-- <div class="buttons">
+            <button>Cancel</button>
+            <button>Save</button>
+        </div> -->
+    </div>
+
+    <script src="assets/js/dash.js"></script>
+    <script src="assets/js/mail.js"></script>
+    <script src="assets/js/scraper.js"></script>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/extracter.js"></script>
+
+</body>
+
+</html>

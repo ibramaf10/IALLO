@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Email</title>
+</head>
+<body>
+    <h1>Send Email</h1>
+    <form id="emailForm">
+        <label for="toEmail">To:</label>
+        <input type="email" id="toEmail" required><br><br>
+        <label for="ccEmail">CC:</label>
+        <input type="email" id="ccEmail"><br><br>
+        <label for="bccEmail">BCC:</label>
+        <input type="email" id="bccEmail"><br><br>
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" required><br><br>
+        <label for="message">Message:</label><br>
+        <textarea id="message" rows="4" cols="50" required></textarea><br><br>
+        <label for="isHtml">HTML:</label>
+        <input type="checkbox" id="isHtml"><br><br>
+        <label for="attachments">Attachments (comma-separated URLs):</label>
+        <input type="text" id="attachments"><br><br>
+        <button type="button" onclick="sendEmail()">Send Email</button>
+    </form>
+    
+
+    <script>
+    
+    async function sendEmail() {
+    const toEmail = document.getElementById('toEmail').value;
+    const ccEmail = document.getElementById('ccEmail').value;
+    const bccEmail = document.getElementById('bccEmail').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+    const isHtml = document.getElementById('isHtml').checked;
+    const attachments = document.getElementById('attachments').value.split(',').map(url => ({ path: url.trim() }));
+
+    try {
+        const response = await fetch('https://mail-api-mounsef.vercel.app/api/send-email', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                to: toEmail,
+                cc: ccEmail,
+                bcc: bccEmail,
+                subject: subject,
+                message: message,
+                isHtml: isHtml,
+                attachments: attachments
+            })
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            alert('Email sent successfully!');
+        } else {
+            alert('Failed to send email: ' + result.error);
+        }
+    } catch (error) {
+        alert('Error: ' + error.message);
+    }
+}
+
+    
+    </script>
+</body>
+</html>
