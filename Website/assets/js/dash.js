@@ -6,8 +6,12 @@ const content = {
     model: `
                 <h3>Model</h3>
                 <div class="form-group">
-                    <label for="firstMessage">First Message</label>
-                    <input type="text" id="firstMessage" placeholder="Enter the first message...">
+                    <label for="callbotname">Callbot Name</label>
+                    <input type="text" id="callbotname" placeholder="Enter Callbot Name.">
+                </div>
+                <div class="form-group">
+                    <label for="welcomemessage">First Message</label>
+                    <input type="text" id="welcomemessage" placeholder="Enter the first message...">
                 </div>
                 <div class="form-group">
                     <label for="systemPrompt">System Prompt</label>
@@ -93,7 +97,7 @@ const content = {
                     <label for="ccEmail">Support Email:</label>
                     <input type="text" id="ccEmail" placeholder="Enter Your Support Email">
                 </div>
-                <button type="button" onclick="sendEmail()">Test Email</button>`,
+                <button type="submit" onclick="sendEmail()">Test Email</button>`,
     data: `
                 <h3>Data</h3>
                 <div class="form-group">
@@ -101,9 +105,9 @@ const content = {
                     <input type="text" id="company" placeholder="Enter Your Company Name">
                 </div>
                 <div class="form-group">
-                    <label for="url">Company WebSite URL:</label>
-                    <input type="text" id="url" placeholder="https://example.com">
-                    <button type="button" onclick="scrapeWebsite()">Scrape Company data</button>
+                    <label for="companywebsite">Company WebSite URL:</label>
+                    <input type="text" id="companywebsite" placeholder="https://example.com">
+                    <button type="submit" onclick="scrapeWebsite()">Scrape Company data</button>
                 </div>
                 <div class="form-group">
                     <label for="companydata">Company Data:</label>

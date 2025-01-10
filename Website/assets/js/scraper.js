@@ -1,11 +1,11 @@
 async function scrapeWebsite() {
-    const url = document.getElementById('url').value;
+    const companywebsite = document.getElementById('companywebsite').value;
     const resultContainer = document.getElementById('companydata');
     resultContainer.textContent = 'Scraping... Please wait.';
 
     try {
         // Make the API request
-        const response = await fetch(`https://api-scraper-nine.vercel.app/api/scrape?url=${encodeURIComponent(url)}`);
+        const response = await fetch(`https://api-scraper-nine.vercel.app/api/scrape?url=${encodeURIComponent(companywebsite)}`);
 
         if (!response.ok) {
             throw new Error('Failed to scrape the website. Make sure the URL is correct.');
