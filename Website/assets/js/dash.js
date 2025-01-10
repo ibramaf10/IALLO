@@ -86,14 +86,29 @@ const content = {
     functions: `          
                 <h3>Functions</h3>
                 <div class="form-group">
-                    <label for="mail">Company Email:</label>
+                    <label for="toEmail">Company Email:</label>
                     <input type="text" id="toEmail" placeholder="Enter Your Company Email">
                 </div>
                 <div class="form-group">
-                    <label for="mail">Support Email:</label>
+                    <label for="ccEmail">Support Email:</label>
                     <input type="text" id="ccEmail" placeholder="Enter Your Support Email">
                 </div>
-                <button type="button" onclick="sendEmail()">Test Email</button>`
+                <button type="button" onclick="sendEmail()">Test Email</button>`,
+    data: `
+                <h3>Data</h3>
+                <div class="form-group">
+                    <label for="company">Company Name:</label>
+                    <input type="text" id="company" placeholder="Enter Your Company Name">
+                </div>
+                <div class="form-group">
+                    <label for="url">Company WebSite URL:</label>
+                    <input type="text" id="url" placeholder="https://example.com">
+                    <button type="button" onclick="scrapeWebsite()">Scrape Company data</button>
+                </div>
+                <div class="form-group">
+                    <label for="companydata">Company Data:</label>
+                    <textarea rows="5" id="companydata" placeholder="Or Enter it manually..."></textarea>
+                </div>`
 };
 
 // Default content for the "Model" tab
