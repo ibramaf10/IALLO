@@ -5,7 +5,7 @@ async function scrapeWebsite() {
         alert('Please enter a company website URL.');
         return;
     }
-    resultContainer.textContent = 'Scraping... Please wait.';
+    // resultContainer.textContent = 'Scraping... Please wait.';
 
     try {
         // Make the API request
@@ -37,8 +37,8 @@ async function scrapeWebsite() {
 
         if (data.html) {
             // Display the scraped HTML in the <pre> element
-            resultContainer.textContent = textContent;
-            alert('Website scraped successfully!');
+            resultContainer.value += textContent;
+            // alert('Website scraped successfully!');
 
             // const companyInfo = await extractCompanyInfo(textContent);
             // if (companyInfo) {
@@ -50,10 +50,10 @@ async function scrapeWebsite() {
             // }
         } else {
             alert('No HTML found. Please try a different URL.');
-            resultContainer.textContent = 'No HTML found. Please try a different URL.';
+            // resultContainer.textContent = 'No HTML found. Please try a different URL.';
         }
     } catch (error) {
         alert(`Error: ${error.message}`);
-        resultContainer.textContent = `Error: ${error.message}`;
+        // resultContainer.textContent = `Error: ${error.message}`;
     }
 }

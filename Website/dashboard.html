@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assistant Dashboard</title>
     <link rel="stylesheet" href="assets/css/dash.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+   
 </head>
+
 <body>
     <div class="navbar">
         <h1>New Assistant</h1>
@@ -52,26 +56,31 @@
                 </div>
                 <div class="form-group">
                     <label for="modelProvider">Provider</label>
-                    <select id="modelProvider">
+                    <select id="modelProvider" onchange="updateModelOptions(this.value)">
                         <option value="openai">OpenAI</option>
+                        <option value="google">Google</option>
+                        <option value="anthropic">Anthropic</option>
                         <option value="other">Other</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="modelType">Model</label>
                     <select id="modelType">
-                        <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
-                        <option value="gpt-4">GPT-4</option>
+                        <option value="gpt-3.5-turbo">gpt-3.5-turbo</option>
+                        <option value="gpt-4">gpt-4</option>
+                        <option value="other">Other</option>
                     </select>
                 </div>
                 <div class="sliders">
                     <div class="slider">
                         <label for="temperature">Temperature</label>
                         <input type="range" id="temperature" min="0" max="1" step="0.1" value="0.7">
+                        <span id="temperatureValue">0.7</span>
                     </div>
                     <div class="slider">
                         <label for="tokens">Max Tokens</label>
                         <input type="range" id="tokens" min="100" max="1000" step="50" value="250">
+                        <span id="tokensValue">250</span>
                     </div>
                 </div>
             </div>
@@ -80,21 +89,39 @@
                 <div class="form-group">
                     <label for="provider">Provider</label>
                     <select id="provider">
+                        <option value="assemblyai">AssemblyAI</option>
                         <option value="deepgram">Deepgram</option>
                         <option value="other">Other</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="language">Language</label>
-                    <input type="text" id="language" value="en" placeholder="Enter language...">
+                    <select id="language">
+                        <option value="en">English</option>
+                        <option value="es">Spanish</option>
+                        <option value="fr">French</option>
+                        <option value="de">German</option>
+                        <option value="it">Italian</option>
+                        <option value="pt">Portuguese</option>
+                        <option value="ja">Japanese</option>
+                        <option value="ko">Korean</option>
+                        <option value="zh-cn">Chinese (Simplified)</option>
+                        <option value="zh-tw">Chinese (Traditional)</option>
+                        <option value="ru">Russian</option>
+                        <option value="ar">Arabic</option>
+                        <option value="hi">Hindi</option>
+                        <option value="multi">Multi</option>
+                        <option value="other">Other</option>
+
+                    </select>
                 </div>
-                <div class="pro-tip">
-                    Pro tip: If you want to support both English and Spanish, you can set the language to multi and use ElevenLabs Turbo 2.5 in the Voice tab.
-                </div>
+               
                 <div class="form-group">
                     <label for="modelTranscriber">Model</label>
                     <select id="modelTranscriber">
                         <option value="nova2">Nova 2</option>
+                        <option value="whisper-1">Whisper 1</option>
+                        <option value="whisper-2">Whisper 2</option>
                         <option value="other">Other</option>
                     </select>
                 </div>
@@ -109,14 +136,18 @@
                     <label for="voiceProvider">Provider</label>
                     <select id="voiceProvider">
                         <option value="elevenlabs">ElevenLabs</option>
+                        <option value="google">Google</option>
+                        <option value="amazon">Amazon</option>
                         <option value="other">Other</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="voice">Voice</label>
-                    <select id="voice">
-                        <option value="New York Man">New York Man</option>
-                        <option value="Wise Men">Wise Men</option>
+                    <label for="voic">Voice</label>
+                    <select id="voic">
+                        <option value="NewYorkMan">New York Man</option>
+                        <option value="WiseMen">Wise Men</option>
+                        <option value="Joanna">Joanna</option>
+                        <option value="Kendra">Kendra</option>
                         <option value="other">Other</option>
                     </select>
                 </div>
@@ -144,23 +175,140 @@
                     <input type="text" id="companywebsite" placeholder="https://example.com">
                     <button type="submit" onclick="scrapeWebsite()">Scrape Company data</button>
                 </div>
+
+                <div class="form-group">
+                    <label for="companydatafile">Upload Company Data (PDF):</label>
+                    <input type="file" id="companydatafile" accept=".pdf" class="form-control">
+                    <div style="margin-top: 1rem;">
+                        <button type="button" id="uploaddoc" class="btn">
+                            Extract Company Info
+                            <span class="spinner" id="loading-spinner"></span>
+                        </button>
+                    </div>
+                </div>
+                
                 <div class="form-group">
                     <label for="companydata">Company Data:</label>
-                    <textarea id="companydata" rows="5" placeholder="Or Enter it manually..."></textarea>
+                    <textarea id="companydata" rows="5" class="form-control" 
+                              placeholder="Enter company data manually or upload a PDF..."></textarea>
                 </div>
-                <div class="form-group">
-                    <label for="companydatafile">Upload Company Data:</label>
-                    <input type="file" id="companydatafile" accept=".json,.txt,.csv">
-                    <button type="submit" onclick="extractCompanyInfoFromFile(document.getElementById('companydatafile').files[0])">Extract Company Info from File</button>
-                </div>
+
+                <button type="button" id="aienhancer" onclick="extractCompanyInfo()" class="btn">
+                    Enhance and summarize Data
+                </button>
+               
             </div>
         </div>
     </div>
+   
+       
+
+
+    <script>
+        // Set up PDF.js worker
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+        class PDFUploader {
+            constructor() {
+                this.uploadButton = document.getElementById('uploaddoc');
+                this.fileInput = document.getElementById('companydatafile');
+                this.textarea = document.getElementById('companydata');
+                this.spinner = document.getElementById('loading-spinner');
+                
+                this.setupEventListeners();
+            }
+
+            setupEventListeners() {
+                this.uploadButton.addEventListener('click', () => this.handleUpload());
+                this.fileInput.addEventListener('change', () => {
+                    this.resetAlerts();
+                    this.uploadButton.disabled = !this.fileInput.files.length;
+                });
+            }
+
+            showLoading(isLoading) {
+                this.spinner.style.display = isLoading ? 'inline-block' : 'none';
+                this.uploadButton.disabled = isLoading;
+                this.fileInput.disabled = isLoading;
+            }
+
+            showAlert(type, message) {
+                this.resetAlerts();
+                const alert = type === 'success' ? this.successAlert : this.errorAlert;
+                if (type === 'error') {
+                    alert.textContent = message;
+                }
+                alert.style.display = 'block';
+                setTimeout(() => {
+                    alert.style.display = 'none';
+                }, 5000);
+            }
+
+            resetAlerts() {
+                this.successAlert.style.display = 'none';
+                this.errorAlert.style.display = 'none';
+            }
+
+            async extractTextFromPDF(file) {
+                try {
+                    const pdfBuffer = await file.arrayBuffer();
+                    const pdf = await pdfjsLib.getDocument({ data: pdfBuffer }).promise;
+                    let extractedText = '';
+
+                    for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++) {
+                        const page = await pdf.getPage(pageNumber);
+                        const textContent = await page.getTextContent();
+                        const pageText = textContent.items
+                            .map(item => item.str)
+                            .join(' ');
+                        extractedText += `${pageText} `;
+                    }
+
+                    return extractedText.trim();
+                } catch (error) {
+                    throw new Error('Failed to extract text from PDF');
+                }
+            }
+
+            async handleUpload() {
+                const file = this.fileInput.files[0];
+                
+                if (!file) {
+                    this.showAlert('error', 'Please select a PDF file.');
+                    return;
+                }
+
+                if (file.type !== 'application/pdf') {
+                    this.showAlert('error', 'Please upload a valid PDF file.');
+                    return;
+                }
+
+                this.showLoading(true);
+
+                try {
+                    const extractedText = await this.extractTextFromPDF(file);
+                    this.textarea.value += extractedText;
+                    this.showAlert('success');
+                } catch (error) {
+                    this.showAlert('error', 'Failed to process PDF. Please try another file.');
+                    console.error('PDF processing error:', error);
+                } finally {
+                    this.showLoading(false);
+                }
+            }
+        }
+
+        // Initialize the uploader when the document is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            new PDFUploader();
+        });
+    </script>
 
     <script src="assets/js/mail.js"></script>
     <script src="assets/js/scraper.js"></script>
-    <script src="assets/js/config.js"></script>
+     <script src="assets/js/config.js"></script>
     <script src="assets/js/extracter.js"></script>
     <script src="assets/js/dash.js"></script>
 </body>
+
 </html>

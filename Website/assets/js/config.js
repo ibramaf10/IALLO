@@ -12,10 +12,10 @@ async function createConfigJson() {
     const tokens = document.getElementById('tokens')?.value;
     const provider = document.getElementById('provider')?.value;
     const language = document.getElementById('language')?.value;
-    const modelTranscriber = document.getElementById('model')?.value;
+    const modelTranscriber = document.getElementById('modelTranscriber')?.value;
     const denoising = document.getElementById('denoising')?.checked;
     const voiceProvider = document.getElementById('voiceProvider')?.value;
-    const voice = document.getElementById('voice')?.value;
+    const voice = document.getElementById('voic')?.value;
 
 
     let missingFields = [];
@@ -28,10 +28,10 @@ async function createConfigJson() {
     if (!welcomemessage) missingFields.push("Welcome Message");
 
 
-    // if (missingFields.length > 0) {
-    //     alert("Please fill in the following fields: " + missingFields.join(", "));
-    //     return;
-    // }
+    if (missingFields.length > 0) {
+        alert("Please fill in the following fields: " + missingFields.join(", "));
+        return;
+    }
 
     const config = {
         company: company,
@@ -54,8 +54,9 @@ async function createConfigJson() {
     };
 
     const jsonString = JSON.stringify(config, null, 2); // Use 2 spaces for indentation
+
     try {
-        const blob = new Blob([jsonString], { type: 'application/json' });
+        const blob = new Blob([createObfuscatedJson(jsonString)], { type: 'application/json' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
@@ -67,4 +68,18 @@ async function createConfigJson() {
         alert(`Failed to save config: ${error.message}`);
     }
 
+}
+
+function xorEncryptDecrypt(input, key) {
+    let output = '';
+    for (let i = 0; i < input.length; i++) {
+        output += String.fromCharCode(input.charCodeAt(i) ^ key.charCodeAt(i % key.length));
+    }
+    return output;
+}
+
+// Function to create and obfuscate the JSON data
+function createObfuscatedJson(jsonString) {
+    const key = 'iallo';  // Static key for XOR encryption
+    return xorEncryptDecrypt(jsonString, key);
 }
